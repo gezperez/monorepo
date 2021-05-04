@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "noEmit": true,
+    "strict": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "jsx": "react-native",
+    "sourceMap": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "lib": ["es7"],
+    "baseUrl": "src",
+    "outDir": "dist",
+    "paths": {
+      "~/*": ["./*"],
+      "@bds/common/*": ["../../common/src/*"]
+    },
+    "skipLibCheck": true,
+    "typeRoots": ["../../node_modules/@types", "node_modules/@types", "types"]
+  },
+  "include": ["src", "test"],
+  "exclude": ["node_modules"],
+  "references": [{ "path": "../common" }]
+}

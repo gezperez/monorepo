@@ -20,12 +20,15 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+project.xcworkspace
 
 # Android/IntelliJ
 #
 build/
 .idea
 .gradle
+.project
+.settings
 local.properties
 *.iml
 
@@ -48,12 +51,25 @@ buck-out/
 # For more information about the recommended setup visit:
 # https://docs.fastlane.tools/best-practices/source-control/
 
-*/fastlane/report.xml
-*/fastlane/Preview.html
-*/fastlane/screenshots
+**/fastlane/report.xml
+**/fastlane/Preview.html
+**/fastlane/screenshots
 
 # Bundle artifact
 *.jsbundle
 
-# CocoaPods
-/ios/Pods/
+# Pods
+*/Pods
+
+# Development configuration files
+src/config/development.local.js
+
+android/app/bin
+
+
+# exclude files intellij
+.idea
+android/app/.classpath
+
+GoogleService-Info.plist
+ios/bds/facephi.lic
