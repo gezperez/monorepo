@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "allowJs": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": "src",
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "~/*": ["./*"],
+      "@bds/common/*": ["../../common/src/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"],
+  "references": [{ "path": "../common" }]
+}

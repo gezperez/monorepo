@@ -1,0 +1,40 @@
+import * as crypto from 'crypto'
+
+const { publicKey } = crypto.generateKeyPairSync('rsa', { modulusLength: 2048 })
+const mockPublicKey = publicKey.export({ format: 'der', type: 'pkcs1' }).toString('base64')
+
+process.env = Object.assign(process.env, {
+  AUTH_MICROSERVICE_URL: 'https://mock',
+  PEOPLE_HUB_MICROSERVICE_URL: 'https://mock',
+  PEOPLE_CHATBOT_MICROSERVICE_URL: 'https://mock',
+  PEOPLE_PRE_SIGNUP_MICROSERVICE_URL: 'https://mock',
+  PEOPLE_MAGIC_LINKS_MICROSERVICE_URL: 'https://mock',
+  BIOMETRIC_AUTHENTICATOR_MICROSERVICE_URL: 'https://mock',
+  SECOND_FACTOR_JWT_MICROSERVICE_URL: 'https://mock',
+  TERMS_AND_CONDITIONS_MICROSERVICE_URL: 'https://mock',
+  ACCOUNTS_DATA_MICROSERVICE_URL: 'https://mock',
+  ACCOUNTS_TRANSACTIONS_MICROSERVICE_URL: 'https://mock',
+  CUSTOMERS_CONTACTS_MICROSERVICE_URL: 'https://mock',
+  FIXED_DEPOSITS_DATA_MICROSERVICE_URL: 'https://mock',
+  FIXED_DEPOSITS_MANAGER_MICROSERVICE_URL: 'https://mock',
+  TRANSFERS_DATA_MICROSERVICE_URL: 'https://mock',
+  TRANSFERS_MANAGER_MICROSERVICE_URL: 'https://mock',
+  PAYMENTS_PAGO_MIS_CUENTAS_MICROSERVICE_URL: 'https://mock',
+  NOTIFICATIONS_MICROSERVICE_URL: 'https://mock',
+  ACCOUNTS_ALIAS_MICROSERVICE_URL: 'https://mock',
+  DEBIT_CARDS_MANAGER_MICROSERVICE_URL: 'https://mock',
+  RECEIPT_MANAGER_MICROSERVICE_URL: 'https://mock',
+  CAMPAIGNS_MICROSERVICE_URL: 'https://mock',
+  KEYCLOAK_PUBLIC_KEY: mockPublicKey,
+  MANDRILL_API_KEY: 'mock',
+  MANDRILL_FROM_EMAIL: 'mock',
+  MANDRILL_FROM_NAME: 'mock',
+  JWT_ONBOARDING_SECRET: 'mock',
+  ENVIRONMENT: 'test',
+  MAINTENANCE_MODE: 'false',
+  TEST_ACCOUNT_PROXY_SUBJECT_WHITELIST: 'mock',
+  TEST_ACCOUNT_PROXY_ISSUER: 'mock',
+  TEST_ACCOUNT_PROXY_URL: 'mock',
+  ANDROID_MIN_REQUIRED_VERSION: '0.0.1',
+  IOS_MIN_REQUIRED_VERSION: '0.0.1',
+})
