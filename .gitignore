@@ -1,0 +1,42 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npmrc-cred
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+node_modules/
+package-lock.json
+
+# Optional npm cache directory
+.npm
+
+# OSX
+.DS_Store
+
+# exclude files intellij
+.idea
+
+# Bitrise
+bitrise.yml
+
+# Google Cloud
+gc_keys.json
+
+# Fastlane test devices
+test-devices.txt
+
+# Code Coverage
+coverage
+
+# Typescript
+*.tsbuildinfo
+dist/

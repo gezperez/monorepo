@@ -1,0 +1,96 @@
+{
+    "name": "rn-monorepo",
+    "version": "1.0.0",
+    "private": true,
+    "workspaces": {
+        "packages": [
+            "packages/*"
+        ]
+    },
+    "engines": {
+        "yarn": ">=1.10.1"
+    },
+    "devDependencies": {
+        "@babel/core": "7.11.6",
+        "@babel/plugin-transform-typescript": "7.11.0",
+        "@babel/preset-env": "7.11.5",
+        "@babel/runtime": "7.11.2",
+        "@react-native-community/eslint-config": "1.1.0",
+        "@react-native-community/eslint-plugin": "1.1.0",
+        "@types/axios": "0.14.0",
+        "@types/dotenv": "6.1.1",
+        "@types/express": "4.17.6",
+        "@types/jest": "26.0.15",
+        "@types/joi": "14.3.4",
+        "@types/jwt-decode": "2.2.1",
+        "@types/lodash": "4.14.159",
+        "@types/node": "13.13.4",
+        "@types/react": "16.9.34",
+        "@types/react-dom": "16.9.7",
+        "@types/supertest": "2.0.8",
+        "@typescript-eslint/eslint-plugin": "2.30.0",
+        "@typescript-eslint/parser": "2.30.0",
+        "babel-eslint": "10.1.0",
+        "babel-plugin-root-import": "6.5.0",
+        "concurrently": "5.2.0",
+        "cross-env": "7.0.2",
+        "eslint": "6.8.0",
+        "eslint-config-airbnb": "17.1.0",
+        "eslint-config-prettier": "6.11.0",
+        "eslint-import-resolver-alias": "1.1.2",
+        "eslint-plugin-babel": "5.3.0",
+        "eslint-plugin-import": "2.20.2",
+        "eslint-plugin-jsx-a11y": "6.2.3",
+        "eslint-plugin-prettier": "3.1.3",
+        "eslint-plugin-react": "7.19.0",
+        "eslint-plugin-react-native": "3.8.1",
+        "eslint-plugin-simple-import-sort": "5.0.3",
+        "eslint-plugin-spellcheck": "0.0.14",
+        "husky": "4.3.6",
+        "jest": "26.6.3",
+        "lint-staged": "8.1.5",
+        "nodemon": "2.0.3",
+        "prettier": "2.0.5",
+        "supertest": "4.0.2",
+        "ts-jest": "26.4.3",
+        "ts-node": "8.9.1",
+        "tsconfig-paths": "3.9.0",
+        "typescript": "3.8.3"
+      },
+      "scripts": {
+        "tsc": "echo Do not run tsc command at root level. Instead run it from packages/project folder",
+        "clean": "yarn clean:node-modules && yarn workspaces run clean",
+        "clean:node-modules": "rm -rf node_modules",
+        "postinstall": "yarn workspaces run postinstall",
+        "ios": "yarn workspace @bds/mobile ios",
+        "android": "yarn workspace @bds/mobile android",
+        "bff-mobile": "yarn workspace @bds/bff-mobile start",
+        "bff-mobile:dev": "yarn workspace @bds/bff-mobile start:dev",
+        "bff-mobile:prod": "yarn workspace @bds/bff-mobile start:prod",
+        "lint": "yarn workspaces run lint",
+        "refresh-aurora": "yarn workspace @bds/mobile refresh-aurora",
+        "test-ci": "cross-env CI=true yarn workspaces run test",
+        "version:minor": "yarn workspaces run version:minor && yarn version --minor --no-git-tag-version",
+        "version:patch": "yarn workspaces run version:patch && yarn version --patch --no-git-tag-version"
+      },
+      "lint-staged": {
+        "packages/common/**/*.{js,ts}": [
+          "prettier --write",
+          "yarn workspace @bds/common lint-staged"
+        ],
+        "packages/mobile/**/*.{js,jsx,ts,tsx}": [
+          "prettier --write",
+          "yarn workspace @bds/mobile lint-staged"
+        ],
+        "packages/bff-mobile/**/*.{js,ts}": [
+          "prettier --write",
+          "yarn workspace @bds/bff-mobile lint-staged"
+        ]
+      },
+      "husky": {
+        "hooks": {
+          "pre-commit": "yarn lint-staged",
+          "pre-push": "yarn workspace @bds/mobile tsc -b -f && yarn lint --quiet && yarn test-ci"
+        }
+      }
+}
