@@ -3,6 +3,7 @@ import { View } from 'react-native'
 
 import api from '~/api'
 import config from '~/config'
+import HomeScreen from './screens/HomeScreen'
 
 const App = () => {
   const handleRefreshSessionFail = async () => {
@@ -32,7 +33,7 @@ const App = () => {
     authRefreshInterceptor,
   })
 
-  return <View />
+  return <HomeScreen />
 }
 
 export default App

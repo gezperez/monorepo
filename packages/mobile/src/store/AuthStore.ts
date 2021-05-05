@@ -11,26 +11,14 @@ export class AuthStore {
 
   sessionHasExpired = false
 
-  constructor(
-    username: string,
-    accessToken: string,
-    refreshToken: string,
-    loading: boolean,
-    sessionHasExpired: boolean
-  ) {
-    this.username = username
-    this.accessToken = accessToken
-    this.refreshToken = refreshToken
-    this.loading = loading
-    this.sessionHasExpired = sessionHasExpired
-
+  constructor() {
     makeAutoObservable(this, {
       signIn: action,
     })
   }
 
   signIn(): void {
-    this.accessToken = undefined
+    this.accessToken = 'prueba'
     this.loading = true
   }
 }
