@@ -61,7 +61,6 @@
         "tsc": "echo Do not run tsc command at root level. Instead run it from packages/project folder",
         "clean": "yarn clean:node-modules && yarn workspaces run clean",
         "clean:node-modules": "rm -rf node_modules",
-        "postinstall": "yarn workspaces run postinstall",
         "ios": "yarn workspace @bds/mobile ios",
         "android": "yarn workspace @bds/mobile android",
         "bff-mobile": "yarn workspace @bds/bff-mobile start",

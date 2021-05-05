@@ -6,7 +6,6 @@
     "clean": "yarn clean:dist && yarn clean:node-modules",
     "clean:dist": "rm -rf dist",
     "clean:node-modules": "rm -rf node_modules",
-    "postinstall": "echo No postinstall script yet",
     "prebuild": "yarn clean:dist",
     "build": "tsc -b -f",
     "format": "prettier --write \"src/**/*.ts\"",

@@ -10,7 +10,6 @@
     "clean:node-modules": "rm -rf node_modules",
     "prebuild": "yarn clean:dist",
     "build": "tsc -p tsconfig.build.json",
-    "postinstall": "echo No postinstall script yet",
     "lint": "cd ../.. && eslint packages/common --ext .js,.jsx,.ts,.tsx",
     "lint-staged": "cd ../.. && eslint --ext .js,.jsx,.ts,.tsx",
     "test": "echo No tests yet!",
