@@ -1,8 +1,6 @@
-const path = require('path')
-
 module.exports = {
   assets: ['./assets/fonts'],
-  dependencies: {
+  /* dependencies: {
     'react-native-nfc-manager': {
       platforms: {
         ios: null,
@@ -18,5 +16,5 @@ module.exports = {
         },
       },
     },
-  },
+  }, */
 }
