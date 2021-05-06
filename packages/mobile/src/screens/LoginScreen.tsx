@@ -2,14 +2,14 @@ import React, { useCallback } from 'react'
 import { TouchableOpacity } from 'react-native'
 import { observer } from 'mobx-react-lite'
 
-import { HomeScreenProps } from '~/navigation/interfaces/home'
+import { LoginScreenProps } from '~/navigation/interfaces/auth'
 
-const HomeScreen = ({ navigation }: HomeScreenProps) => {
+const LoginScreen = ({ navigation }: LoginScreenProps) => {
   const handleOnPress = useCallback(() => {
-    navigation.navigate('Login')
+    navigation.navigate('HomeStack', { screen: 'Home' })
   }, [navigation])
 
   return <TouchableOpacity onPress={handleOnPress} />
 }
 
-export default observer(HomeScreen)
+export default observer(LoginScreen)

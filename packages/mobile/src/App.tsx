@@ -1,11 +1,13 @@
 import React from 'react'
-import { View } from 'react-native'
 
 import api from '~/api'
 import config from '~/config'
-import HomeScreen from './screens/HomeScreen'
+import Navigator from '~/navigation/Navigator'
+import { useStore } from '~/store'
 
 const App = () => {
+  const { authStore } = useStore()
+
   const handleRefreshSessionFail = async () => {
     if (authStore.sessionHasExpired) {
       return
@@ -33,7 +35,7 @@ const App = () => {
     authRefreshInterceptor,
   })
 
-  return <HomeScreen />
+  return <Navigator />
 }
 
 export default App
