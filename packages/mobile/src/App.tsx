@@ -1,12 +1,16 @@
 import React from 'react'
+import { Platform } from 'react-native'
 
 import api from '~/api'
 import config from '~/config'
 import Navigator from '~/navigation/Navigator'
 import { useStore } from '~/store'
+import { navigate } from './navigation/RootNavigator'
 
 const App = () => {
-  const { authStore } = useStore()
+  const { appStore, authStore } = useStore()
+
+  const { version, deviceModel, maintenanceMode } = appStore
 
   const handleRefreshSessionFail = async () => {
     if (authStore.sessionHasExpired) {
@@ -15,11 +19,17 @@ const App = () => {
 
     authStore.setSessionAsExpired()
 
-    try {
-      await authStore.logout()
-    } catch (err) {
-      // TODO: Log error
+    await authStore.signOut()
+  }
+
+  const handleServiceUnavailable = () => {
+    if (maintenanceMode) {
+      return
     }
+
+    appStore.enableMaintenanceMode()
+
+    navigate('Maintenance')
   }
 
   const authRefreshInterceptor = async (failedRequest: any) => {
@@ -30,9 +40,19 @@ const App = () => {
     }
   }
 
+  const handleMandatoryUpdateRequired = () => {
+    appStore.setMandatoryUpdateAsRequired()
+    navigate('Update')
+  }
+
   api.init({
     baseUrl: config.apiBaseUrl,
+    version,
+    deviceModel,
+    platform: Platform.OS,
     authRefreshInterceptor,
+    onServiceUnavailable: handleServiceUnavailable,
+    onMandatoryUpdateRequired: handleMandatoryUpdateRequired,
   })
 
   return <Navigator />
