@@ -139,6 +139,9 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    applicationVariants.all { variant ->
+        variant.resValue "string", "versionName", "v" + variant.versionName
+    }
     splits {
         abi {
             reset()

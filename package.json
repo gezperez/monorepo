@@ -61,13 +61,13 @@
         "tsc": "echo Do not run tsc command at root level. Instead run it from packages/project folder",
         "clean": "yarn clean:node-modules && yarn workspaces run clean",
         "clean:node-modules": "rm -rf node_modules",
-        "ios": "yarn workspace @bds/mobile ios",
-        "android": "yarn workspace @bds/mobile android",
-        "bff-mobile": "yarn workspace @bds/bff-mobile start",
-        "bff-mobile:dev": "yarn workspace @bds/bff-mobile start:dev",
-        "bff-mobile:prod": "yarn workspace @bds/bff-mobile start:prod",
+        "ios": "yarn workspace @monorepo/mobile ios",
+        "android": "yarn workspace @monorepo/mobile android",
+        "bff-mobile": "yarn workspace @monorepo/bff-mobile start",
+        "bff-mobile:dev": "yarn workspace @monorepo/bff-mobile start:dev",
+        "bff-mobile:prod": "yarn workspace @monorepo/bff-mobile start:prod",
         "lint": "yarn workspaces run lint",
-        "refresh-aurora": "yarn workspace @bds/mobile refresh-aurora",
+        "refresh-aurora": "yarn workspace @monorepo/mobile refresh-aurora",
         "test-ci": "cross-env CI=true yarn workspaces run test",
         "version:minor": "yarn workspaces run version:minor && yarn version --minor --no-git-tag-version",
         "version:patch": "yarn workspaces run version:patch && yarn version --patch --no-git-tag-version"
@@ -75,21 +75,21 @@
       "lint-staged": {
         "packages/common/**/*.{js,ts}": [
           "prettier --write",
-          "yarn workspace @bds/common lint-staged"
+          "yarn workspace @monorepo/common lint-staged"
         ],
         "packages/mobile/**/*.{js,jsx,ts,tsx}": [
           "prettier --write",
-          "yarn workspace @bds/mobile lint-staged"
+          "yarn workspace @monorepo/mobile lint-staged"
         ],
         "packages/bff-mobile/**/*.{js,ts}": [
           "prettier --write",
-          "yarn workspace @bds/bff-mobile lint-staged"
+          "yarn workspace @monorepo/bff-mobile lint-staged"
         ]
       },
       "husky": {
         "hooks": {
           "pre-commit": "yarn lint-staged",
-          "pre-push": "yarn workspace @bds/mobile tsc -b -f && yarn lint --quiet && yarn test-ci"
+          "pre-push": "yarn workspace @monorepo/mobile tsc -b -f && yarn lint --quiet && yarn test-ci"
         }
       }
 }

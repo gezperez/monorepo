@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Platform } from 'react-native'
+import SplashScreen from 'react-native-splash-screen'
 
 import api from '~/api'
 import config from '~/config'
@@ -54,6 +55,10 @@ const App = () => {
     onServiceUnavailable: handleServiceUnavailable,
     onMandatoryUpdateRequired: handleMandatoryUpdateRequired,
   })
+
+  useEffect(() => {
+    SplashScreen.hide()
+  }, [])
 
   return <Navigator />
 }

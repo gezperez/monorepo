@@ -1,29 +1,30 @@
 {
-  "name": "@mr/mobile",
+  "name": "@monorepo/mobile",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "clean": "yarn clean:android && yarn clean:ios && yarn clean:node-modules",
     "clean:android": "rm -rf android/build",
-    "clean:ios": "rm -rf android/build && rm -rf ios/Pods && rm -rf ~/Library/Developer/Xcode/DerivedData/bds*",
+    "clean:ios": "rm -rf android/build && rm -rf ios/Pods && rm -rf ~/Library/Developer/Xcode/DerivedData/monorepo*",
     "clean:node-modules": "rm -rf node_modules",
     "start": "react-native start",
     "reverse": "adb reverse tcp:8081 tcp:8081; adb reverse tcp:9090 tcp:9090;",
-    "android": "yarn reverse; react-native run-android --variant=developmentDebug",
+    "android": "yarn reverse; react-native run-android",
     "ios": "react-native run-ios",
     "refresh-aurora": "bin/refresh-aurora.sh",
     "test": "jest",
     "lint": "cd ../.. && eslint packages/mobile --ext .js,.jsx,.ts,.tsx",
     "lint-staged": "cd ../.. && eslint --ext .js,.jsx,.ts,.tsx",
     "build:production": "cd android && ./gradlew clean && cross-env ENVFILE=.env.production ./gradlew app:assembleRelease",
-    "fastlane:android-prod": "cross-env ENVFILE=.env.production fastlane android bds_production",
-    "fastlane:ios-prod": "cross-env ENVFILE=.env.production fastlane ios bds_production",
-    "fastlane:android-cyan": "cross-env ENVFILE=.env.squads.cyan fastlane android bds_squads squad_id:cyan",
-    "fastlane:ios-cyan": "cross-env ENVFILE=.env.squads.cyan fastlane ios bds_squads squad_id:cyan",
+    "fastlane:android-prod": "cross-env ENVFILE=.env.production fastlane android monorepo_production",
+    "fastlane:ios-prod": "cross-env ENVFILE=.env.production fastlane ios monorepo_production",
+    "fastlane:android-cyan": "cross-env ENVFILE=.env.squads.cyan fastlane android monorepo_squads squad_id:cyan",
+    "fastlane:ios-cyan": "cross-env ENVFILE=.env.squads.cyan fastlane ios monorepo_squads squad_id:cyan",
     "version:minor": "yarn version --minor --no-git-tag-version",
     "version:patch": "yarn version --patch --no-git-tag-version"
   },
   "dependencies": {
+    "@apollo/client": "3.3.16",
     "@react-native-community/async-storage": "1.6.1",
     "@react-native-community/hooks": "2.5.1",
     "@react-native-community/masked-view": "0.1.11",
@@ -31,6 +32,7 @@
     "@react-navigation/stack": "5.14.4",
     "axios": "0.19.2",
     "axios-auth-refresh": "2.2.0",
+    "graphql": "15.5.0",
     "hoist-non-react-statics": "3.3.0",
     "lodash": "4.17.20",
     "mobx": "6.3.0",
@@ -42,7 +44,8 @@
     "react-native-gesture-handler": "1.10.3",
     "react-native-reanimated": "2.1.0",
     "react-native-safe-area-context": "3.2.0",
-    "react-native-screens": "3.1.1"
+    "react-native-screens": "3.1.1",
+    "react-native-splash-screen": "3.2.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.13.0",
@@ -77,8 +80,7 @@
       "<rootDir>/jest/setup.js"
     ],
     "setupFiles": [
-      "./node_modules/react-native-gesture-handler/jestSetup.js",
-      "./node_modules/@bds/aurora/jestSetup.js"
+      "./node_modules/react-native-gesture-handler/jestSetup.js"
     ]
   },
   "workspaces": {

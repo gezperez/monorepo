@@ -63,7 +63,7 @@ module.exports = {
             // Packages. `react` related packages come first.
             ['^react', '^@?\\w'],
             // Internal packages.
-            ['^(@|@bds)(/.*|$)'],
+            ['^(@|@monorepo)(/.*|$)'],
             // Root imports with babel-plugin-root-import (~/).
             // Parent imports. Put `..` last.
             // Other relative imports. Put same-folder imports and `.` last.

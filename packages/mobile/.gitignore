@@ -72,4 +72,4 @@ android/app/bin
 android/app/.classpath
 
 GoogleService-Info.plist
-ios/bds/facephi.lic
+ios/monorepo/facephi.lic

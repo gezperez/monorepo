@@ -13,7 +13,7 @@
     "resolveJsonModule": true,
     "paths": {
       "~/*": ["./*"],
-      "@bds/common/*": ["../../common/src/*"]
+      "@monorepo/common/*": ["../../common/src/*"]
     }
   },
   "include": ["src"],

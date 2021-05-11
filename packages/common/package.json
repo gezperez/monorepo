@@ -1,5 +1,5 @@
 {
-  "name": "@mr/common",
+  "name": "@monorepo/common",
   "version": "1.56.1",
   "private": true,
   "main": "dist/index.js",

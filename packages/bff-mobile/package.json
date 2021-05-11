@@ -1,5 +1,5 @@
 {
-  "name": "@mr/bff-mobile",
+  "name": "@monorepo/bff-mobile",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -62,7 +62,7 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "^@bds/common/(.*)$": "<rootDir>/../../common/src/$1",
+      "^@monorepo/common/(.*)$": "<rootDir>/../../common/src/$1",
       "^~/(.*)$": "<rootDir>/$1"
     },
     "moduleFileExtensions": [

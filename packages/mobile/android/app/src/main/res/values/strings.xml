@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">monorepo</string>
+    <string name="app_name">Monorepo</string>
+    <string name="app_version">Version</string>
+    <string name="launchicon">LaunchIcon</string>
+    <!--suppress CheckTagEmptyBody -->
+    <string name="versionName" />
 </resources>

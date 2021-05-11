@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
   extends: ['@react-native-community', '../../.eslintrc.js'],
@@ -30,7 +30,7 @@ module.exports = {
       alias: {
         map: [
           ['~', path.resolve(__dirname, './src')],
-          ['@bds/common', path.resolve(__dirname, '../common/src')],
+          ['@monorepo/common', path.resolve(__dirname, '../common/src')],
         ],
         extensions: [
           '.js',
@@ -55,4 +55,4 @@ module.exports = {
       },
     },
   ],
-};
+}

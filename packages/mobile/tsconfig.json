@@ -18,7 +18,7 @@
     "outDir": "dist",
     "paths": {
       "~/*": ["./*"],
-      "@bds/common/*": ["../../common/src/*"]
+      "@monorepo/common/*": ["../../common/src/*"]
     },
     "skipLibCheck": true,
     "typeRoots": ["../../node_modules/@types", "node_modules/@types", "types"]
