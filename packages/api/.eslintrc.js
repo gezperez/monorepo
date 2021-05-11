@@ -6,6 +6,8 @@ module.exports = {
     'class-methods-use-this': 'off',
     'no-empty-function': 'off',
     'no-useless-constructor': 'off',
+    'no-param-reassign': [2, { props: false }],
+    'no-underscore-dangle': 'off',
   },
   settings: {
     'import/resolver': {
