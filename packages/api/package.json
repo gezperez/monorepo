@@ -6,7 +6,9 @@
     "test": "NODE_ENV=mocha mocha -r dotenv/config --recursive './{,!(node_modules)/**}/*.test.js'",
     "build": "babel src -d dist --source-maps",
     "dev": "nodemon src/index.js --exec \"node -r dotenv/config\" --exec babel-node",
-    "clean": "rimraf dist"
+    "clean": "yarn clean:dist && yarn clean:node-modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node-modules": "rm -rf node_modules"
   },
   "dependencies": {
     "apollo-server": "^2.21.0",
@@ -19,7 +21,6 @@
     "graphql": "^15.5.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "5.11.15",
-    "rimraf": "^3.0.2",
     "throng": "^5.0.0"
   },
   "devDependencies": {
