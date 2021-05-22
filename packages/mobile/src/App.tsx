@@ -5,18 +5,21 @@ import { setContext } from '@apollo/client/link/context'
 
 import config from '~/config'
 import Navigator from '~/navigation/Navigator'
+import { useStore } from './store'
+
+const defaultOptions: DefaultOptions = {
+  watchQuery: {
+    fetchPolicy: 'no-cache',
+    errorPolicy: 'ignore',
+  },
+  query: {
+    fetchPolicy: 'no-cache',
+    errorPolicy: 'all',
+  },
+}
 
 const App = () => {
-  const defaultOptions: DefaultOptions = {
-    watchQuery: {
-      fetchPolicy: 'no-cache',
-      errorPolicy: 'ignore',
-    },
-    query: {
-      fetchPolicy: 'no-cache',
-      errorPolicy: 'all',
-    },
-  }
+  const { authStore } = useStore()
 
   const httpLink = createHttpLink({
     uri: config.apiBaseUrl,
@@ -26,6 +29,7 @@ const App = () => {
     return {
       headers: {
         ...headers,
+        authorization: authStore.accessToken ? `Bearer ${authStore.accessToken}` : '',
       },
     }
   })

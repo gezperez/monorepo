@@ -6,11 +6,9 @@ import { observer } from 'mobx-react-lite'
 import { useStore } from '~/store'
 
 const LOGIN = gql`
-  mutation Login($email: String!, $password: String!) {
+  mutation LoginMutation($email: String!, $password: String!) {
     login(email: $email, password: $password) {
-      user {
-        id
-      }
+      user
     }
   }
 `
@@ -19,15 +17,17 @@ const LoginScreen = () => {
   const [email, setEmail] = useState<string | undefined>(undefined)
   const [password, setPassword] = useState<string | undefined>(undefined)
 
-  const [login, { loading, data }] = useMutation(LOGIN)
+  const [login, { loading, data }] = useMutation(LOGIN, {
+    variables: {
+      email,
+      password,
+    },
+    onCompleted: () => {},
+  })
 
   const { authStore } = useStore()
 
-  const handleLoginPress = () =>
-    login({
-      variables: { email, password },
-    })
-
+  const handleLoginPress = () => login()
   useEffect(() => {}, [authStore, data, loading])
 
   if (loading) {
