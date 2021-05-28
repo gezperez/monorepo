@@ -9,7 +9,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
     navigation.navigate('Login')
   }, [navigation])
 
-  return <TouchableOpacity onPress={handleOnPress} />
+  return <TouchableOpacity onPress={() => handleOnPress()} />
 }
 
 export default observer(HomeScreen)
