@@ -1,0 +1,15 @@
+{
+    "name": "DesignSystem",
+    "version": "1.0.0",
+    "description": "Example Design system button",
+    "license": "MIT",
+    "private": true,
+    "main": "dist/DesignSystem.cjs.js",
+    "types": "dist/DesignSystem.cjs.d.ts",
+    "module": "dist/DesignSystem.esm.js",
+    "react-native": "src/index.ts",
+    "dependencies": {
+        "react": "18.2.0",
+        "react-native": "0.74.0"
+    }
+  }

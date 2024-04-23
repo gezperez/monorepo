@@ -1,57 +1,57 @@
 {
-    "name": "ezequiel-monorepo",
-    "version": "1.0.0",
-    "description": "Ezequiel Monorepo",
-    "author": {
-      "name": "Ezequiel Perez"
-    },
-    "main": "index.js",
-    "license": "MIT",
-    "private": true,
-    "scripts": {
-      "clean": "rm -rf node_modules **/node_modules **/**/node_modules **/**/**/node_modules && rm -rf $TMPDIR/react-* && watchman watch-del-all && yarn cache clean",
-      "lint:eslint": "eslint . --ext ts,tsx,js",
-      "lint:fix": "eslint . --ext ts,tsx,js --fix",
-      "lint:prettier": "prettier --list-different \"**/*.{js,json,ts,tsx}\"",
-      "lint:types": "tsc",
-      "lint": "yarn lint:prettier && yarn lint:eslint && yarn lint:types",
-      "types": "tsc",
-      "postinstall": "preconstruct dev"
-    },
-    "workspaces": {
-      "packages": [
-        "packages/**",
-        "apps/*"
-      ]
-    },
-    "preconstruct": {
-      "packages": [
-        "packages/*"
-      ]
-    },
-    "prettier": {
-      "proseWrap": "always",
-      "singleQuote": true,
-      "printWidth": 120,
-      "arrowParens": "avoid",
-      "endOfLine": "auto",
-      "bracketSameLine": true,
-      "bracketSpacing": true,
-      "trailingComma": "all"
-    },
-    "dependencies": {
-      "@babel/preset-env": "^7.24.4",
-      "@babel/preset-typescript": "^7.24.1",
-      "@manypkg/cli": "^0.21.4",
-      "@preconstruct/cli": "^2.8.3",
-      "@react-native-community/eslint-config": "^3.2.0",
-      "@types/jest": "^29.5.12",
-      "@typescript-eslint/parser": "^7.7.1",
-      "eslint": "^9.1.1",
-      "eslint-config-prettier": "^9.1.0",
-      "eslint-plugin-ft-flow": "^3.0.7",
-      "prettier": "^3.2.5",
-      "typescript": "^5.4.5"
-    }
+  "name": "ezequiel-monorepo",
+  "version": "1.0.0",
+  "description": "Ezequiel Monorepo",
+  "author": {
+    "name": "Ezequiel Perez"
+  },
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf node_modules **/node_modules **/**/node_modules **/**/**/node_modules && rm -rf $TMPDIR/react-* && watchman watch-del-all && yarn cache clean",
+    "lint:eslint": "eslint . --ext ts,tsx,js",
+    "lint:fix": "eslint . --ext ts,tsx,js --fix",
+    "lint:prettier": "prettier --list-different \"**/*.{js,json,ts,tsx}\"",
+    "lint:types": "tsc",
+    "lint": "yarn lint:prettier && yarn lint:eslint && yarn lint:types",
+    "types": "tsc",
+    "postinstall": "preconstruct dev"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/**",
+      "apps/*"
+    ]
+  },
+  "preconstruct": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "prettier": {
+    "proseWrap": "always",
+    "singleQuote": true,
+    "printWidth": 120,
+    "arrowParens": "avoid",
+    "endOfLine": "auto",
+    "bracketSameLine": true,
+    "bracketSpacing": true,
+    "trailingComma": "all"
+  },
+  "dependencies": {
+    "@babel/core": "^7.24.4",
+    "@babel/preset-env": "^7.24.4",
+    "@babel/preset-typescript": "^7.24.1",
+    "@manypkg/cli": "^0.21.4",
+    "@preconstruct/cli": "^2.8.3",
+    "@react-native-community/eslint-config": "^3.2.0",
+    "@types/jest": "^29.5.12",
+    "@typescript-eslint/parser": "^7.7.1",
+    "eslint": "^9.1.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-ft-flow": "^3.0.7",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5"
   }
-  
+}
